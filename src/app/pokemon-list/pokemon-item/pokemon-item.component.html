@@ -1,0 +1,48 @@
+<!--individuálne tlačidlo pre každého načítaného pokémona otvárajúce modálny komponent-->
+<div class="pokemons">
+  <a class="pokemons__button" (click)="open(content)">
+    {{ pokemon.name | titlecase }}
+  </a>
+</div>
+
+<!--Modálny komponent zobrazujúci kartičku s údajmi o pokémonovi-->
+<ng-template #content let-modal>
+  <div
+    class="card"
+    [ngClass]="{
+      card__grass: pokemon.types[0].type.name === 'grass' || 'bug',
+      card__fire: pokemon.types[0].type.name === 'fire',
+      card__water: pokemon.types[0].type.name === 'water',
+      card__normal: pokemon.types[0].type.name === 'normal',
+      card__electric: pokemon.types[0].type.name === 'electric',
+      card__poison: pokemon.types[0].type.name === 'poison',
+      card__ground: pokemon.types[0].type.name === 'ground',
+      card__rock: pokemon.types[0].type.name === 'rock',
+      card__fighting: pokemon.types[0].type.name === 'fighting',
+      card__fairy: pokemon.types[0].type.name === 'fairy',
+      card__psychic: pokemon.types[0].type.name === 'psychic'
+    }"
+  >
+    <div class="card__heading">
+      <h4 class="card__title">{{ pokemon.name | titlecase }}</h4>
+      <span class="card__stat">HP {{ pokemon.stats[0].base_stat }}</span>
+    </div>
+
+    <img
+      class="card__img"
+      src="{{ pokemon.sprites.front_default }}"
+      alt="{{ pokemon.name }} image"
+    />
+    <div class="card__details">
+      {{ pokemon.types[0].type.name | titlecase }} Pokemon. Weight:
+      {{ pokemon.weight / 10 }} kg, Length: {{ pokemon.height * 10 }} cm.
+    </div>
+    <h5 class="card__under-heading">Abilities</h5>
+    <div class="card__abilities" *ngIf="pokemon.abilities.length >= 1">
+      {{ pokemon.abilities[0].ability.name }}
+    </div>
+    <div class="card__abilities" *ngIf="pokemon.abilities.length > 1">
+      {{ pokemon.abilities[1].ability.name }}
+    </div>
+  </div>
+</ng-template>

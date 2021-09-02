@@ -1,0 +1,15 @@
+@import "../../assets/variables.scss";
+
+.pokemon-list {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16em;
+
+  .pokemon-list__dropdown {
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
+}

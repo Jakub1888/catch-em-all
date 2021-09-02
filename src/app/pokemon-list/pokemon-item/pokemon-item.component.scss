@@ -1,0 +1,121 @@
+@import "../../../assets/variables.scss";
+.pokemons {
+  padding: 0.5em;
+
+  .pokemons__button {
+    cursor: pointer;
+    display: block;
+    width: 115px;
+    height: 45px;
+    background: #4e9caf;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    @include transition(0.3s all);
+  }
+
+  .pokemons__button:hover {
+    text-decoration: none;
+    background: darken(#4e9caf, 10%);
+  }
+}
+
+.modal-dialog {
+  max-width: 22em;
+  margin: 8em auto;
+}
+
+.card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 22em;
+  height: 30em;
+  padding: 2em;
+  border: 8px solid #ffcb05;
+  text-align: center;
+
+  .card__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+
+    .card__title {
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+
+  .card__img {
+    width: 100%;
+    border: 8px solid #ffcb05;
+    background: white;
+    @include box-shadow();
+  }
+
+  .card__details {
+    font-size: 12px;
+    padding: 1em 0 0.6em 0;
+  }
+
+  .card__abilities {
+    width: 100%;
+    border-bottom: 1px solid #000;
+  }
+
+  .card__under-heading {
+    margin: 0;
+    padding-bottom: 0.2em;
+  }
+}
+
+//Pokemon types background styles
+.card__grass {
+  background-color: #7ac74c;
+}
+.card__fire {
+  background-color: #ee8130;
+}
+.card__water {
+  background-color: #6390f0;
+}
+.card__normal {
+  background-color: #a8a77a;
+}
+.card__poison {
+  background-color: #a33ea1;
+}
+.card__electric {
+  background-color: #f7d02c;
+}
+.card__ground {
+  background-color: #e2bf65;
+}
+.card__fairy {
+  background-color: #d685ad;
+}
+.card__psychic {
+  background-color: #f95587;
+}
+.card__rock {
+  background-color: #b6a136;
+}
+.card__fighting {
+  background-color: #c22e28;
+}
+
+@media screen and (max-width: 375px) {
+  .modal-dialog {
+    max-width: 20em;
+  }
+  .card {
+    width: 20em;
+    height: 28em;
+    padding: 1em;
+  }
+}

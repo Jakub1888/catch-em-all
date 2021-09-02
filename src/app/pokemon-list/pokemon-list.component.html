@@ -1,0 +1,27 @@
+<div class="pokemon-list">
+  <!--Výber limitu, koľko chceme zobraziť pokémonov-->
+  <select
+    class="pokemon-list__dropdown"
+    [(ngModel)]="pokemonLimit"
+    (change)="onChangeLimit()"
+  >
+    <option *ngFor="let limit of limits" [ngValue]="limit">{{ limit }}</option>
+  </select>
+
+  <!--Zobraz Loading správu pokiaľ sa dáta načítavajú-->
+  <div *ngIf="isLoading">Loading...</div>
+
+  <!--Zobraz komponent pokemon start s úvodnou správou, pokiaľ na stránke nie su fetchnuté dáta o pokémonoch-->
+  <div *ngIf="pokemons.length; else pokemonStart"></div>
+
+  <!--Iterácia cez pole pokémonov a zobrazenie jedného komponentu app-pokemon-item pre každý element v poli-->
+  <app-pokemon-item
+    *ngFor="let pokemon of pokemons; let i = index"
+    [pokemon]="pokemon"
+    [index]="i"
+  ></app-pokemon-item>
+
+  <ng-template #pokemonStart
+    ><app-pokemon-start></app-pokemon-start
+  ></ng-template>
+</div>

@@ -1,0 +1,12 @@
+.app {
+  background: url("../assets/pokemon-logo-png-1432.png") no-repeat;
+  background-size: 35em 15em;
+  background-position: top;
+  margin: 3em;
+}
+@media screen and (max-width: 670px) {
+  .app {
+    margin: 3em 1em;
+    background-size: 30em 15em;
+  }
+}
